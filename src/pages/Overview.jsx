@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import StatCard from "../components/Statcard";
-import RevenueChart from "../components/charts/RevenueChart";
-import PieChart from "../components/charts/PieChart";
-import OrdersTable from "../components/OrdersTable";
+import RevenueChart from "../components/charts/Revenuechart";
+import PieChart from "../components/charts/Piechart";
+import OrdersTable from "../components/Orderstable";
 import { getUsers, getPosts } from "../services/API";
 
 export default function Overview() {

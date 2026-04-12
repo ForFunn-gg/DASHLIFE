@@ -1,4 +1,4 @@
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/Themecontext";
 import { useAuth } from "../context/AuthContext";
 
 export default function Settings() {

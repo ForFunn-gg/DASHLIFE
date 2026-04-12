@@ -1,5 +1,5 @@
 import { Bell, Search, Sun, Moon, Menu } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/Themecontext";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 

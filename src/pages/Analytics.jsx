@@ -1,7 +1,7 @@
 import StatCard from "../components/Statcard";
-import RevenueChart from "../components/charts/RevenueChart";
-import AreaChart from "../components/charts/AreaChart";
-import PieChart from "../components/charts/PieChart";
+import RevenueChart from "../components/charts/Revenuechart";
+import AreaChart from "../components/charts/Areachart";
+import PieChart from "../components/charts/Piechart";
 
 export default function Analytics() {
   return (
