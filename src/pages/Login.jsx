@@ -5,40 +5,55 @@ import { useAuth } from "../context/AuthContext";
 export default function Login() {
   const { login } = useAuth();
   const navigate  = useNavigate();
-  const [form, setForm]     = useState({ email: "", password: "" });
-  const [error, setError]   = useState("");
+  const [form, setForm]       = useState({ email: "", password: "" });
+  const [error, setError]     = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 600));
-    const ok = login(form.email, form.password);
-    if (ok) navigate("/");
-    else setError("Invalid email or password.");
+
+    await new Promise((r) => setTimeout(r, 500));
+
+    const err = login(form.email, form.password);
+    if (err) {
+      setError(err);
+    } else {
+      navigate("/");
+    }
+
     setLoading(false);
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-950 px-4 transition-colors duration-200">
       <div className="w-full max-w-sm">
+        {/* Logo */}
         <div className="flex items-center gap-2 justify-center mb-8">
           <div className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
-          <span className="text-lg font-semibold text-gray-900 dark:text-white tracking-tight">Dashify</span>
+          <span className="text-lg font-semibold text-gray-900 dark:text-white tracking-tight">
+            Dashify
+          </span>
         </div>
 
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-sm">
-          <h1 className="text-xl font-semibold text-gray-900 dark:text-slate-100 mb-1">Welcome back</h1>
-          <p className="text-sm text-gray-400 dark:text-slate-500 mb-6">Sign in to your dashboard</p>
+          <h1 className="text-xl font-semibold text-gray-900 dark:text-slate-100 mb-1">
+            Welcome back
+          </h1>
+          <p className="text-sm text-gray-400 dark:text-slate-500 mb-6">
+            Sign in to your dashboard
+          </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {[
               { key: "email",    label: "Email",    type: "email",    placeholder: "john@example.com" },
-              { key: "password", label: "Password", type: "password", placeholder: "••••••••" },
+              { key: "password", label: "Password", type: "password", placeholder: "••••••••"         },
             ].map(({ key, label, type, placeholder }) => (
               <div key={key}>
-                <label className="block text-xs font-medium text-gray-500 dark:text-slate-400 mb-1">{label}</label>
+                <label className="block text-xs font-medium text-gray-500 dark:text-slate-400 mb-1">
+                  {label}
+                </label>
                 <input
                   type={type}
                   required
@@ -67,7 +82,9 @@ export default function Login() {
 
           <p className="text-center text-xs text-gray-400 dark:text-slate-500 mt-5">
             Don't have an account?{" "}
-            <Link to="/register" className="text-indigo-500 hover:underline">Register</Link>
+            <Link to="/register" className="text-indigo-500 hover:underline">
+              Register
+            </Link>
           </p>
         </div>
       </div>
